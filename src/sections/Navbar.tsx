@@ -75,7 +75,7 @@ function Navbar() {
             ease: "easeInOut",
           }}
         >
-          {responsiveNavVisible ? (
+          {/* {responsiveNavVisible ? (
             <CgClose
               onClick={(e) => {
                 e.stopPropagation();
@@ -85,6 +85,22 @@ function Navbar() {
           ) : (
             <GiHamburgerMenu
               onClick={(e) => {
+                e.stopPropagation();
+                setResponsiveNavVisible(true);
+              }}
+            />
+          )} */}
+
+          {responsiveNavVisible ? (
+            <CgClose
+              onClick={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+                e.stopPropagation();
+                setResponsiveNavVisible(false);
+              }}
+            />
+          ) : (
+            <GiHamburgerMenu
+              onClick={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
                 e.stopPropagation();
                 setResponsiveNavVisible(true);
               }}
