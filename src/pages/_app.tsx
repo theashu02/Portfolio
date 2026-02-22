@@ -1,7 +1,8 @@
-import "@/scss/globals.css";
-import "@/scss/index.scss";
+import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Raleway, Fira_Code } from "next/font/google";
+import { ThemeProvider } from "next-themes";
+import { ThemeColorProvider } from "@/components/ThemeColorProvider";
 
 const raleway = Raleway({ subsets: ["latin"] });
 const firaCode = Fira_Code({
@@ -11,14 +12,20 @@ const firaCode = Fira_Code({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <style jsx global>{`
-        :root {
-          --raleway: ${raleway.style.fontFamily};
-          --fira-code: ${firaCode.style.fontFamily};
-        }
-      `}</style>
-      <Component {...pageProps} />
-    </>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <div className={`${raleway.className} font-sans`}>
+        <>
+          <style jsx global>{`
+            :root {
+              --raleway: ${raleway.style.fontFamily};
+              --fira-code: ${firaCode.style.fontFamily};
+            }
+          `}</style>
+        </>
+        <ThemeColorProvider>
+          <Component {...pageProps} />
+        </ThemeColorProvider>
+      </div>
+    </ThemeProvider>
   );
 }

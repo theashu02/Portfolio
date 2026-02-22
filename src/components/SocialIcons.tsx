@@ -1,10 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import {
-  FiGithub,
-  FiInstagram,
-  FiLinkedin
-} from "react-icons/fi";
+import { FiGithub, FiInstagram, FiLinkedin } from "react-icons/fi";
 import { SiCodeforces } from "react-icons/si";
 import { TbBrandLeetcode } from "react-icons/tb";
 import { motion } from "framer-motion";
@@ -39,7 +35,7 @@ function SocialIcons() {
   ];
   return (
     <motion.div
-      className="social-icons"
+      className="fixed left-10 bottom-0 hidden md:flex flex-col items-center gap-6 after:content-[''] after:w-[1px] after:h-24 after:bg-muted-foreground"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
@@ -48,14 +44,10 @@ function SocialIcons() {
         delay: 1.95,
       }}
     >
-      <ul className="social-icons-list">
+      <ul className="flex flex-col gap-6 list-none m-0 p-0 mb-4">
         {socialLinks.map(({ name, icon, link }) => (
-          <li key={name} title={name} className="social-icons-list-item">
-            <Link
-              href={link}
-              className="social-icons-list-item-link"
-              target="_blank"
-            >
+          <li key={name} title={name} className="flex justify-center items-center">
+            <Link href={link} className="text-muted-foreground hover:text-primary hover:-translate-y-1 transition-all duration-300 text-xl flex" target="_blank">
               {icon}
             </Link>
           </li>

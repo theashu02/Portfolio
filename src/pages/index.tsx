@@ -10,6 +10,10 @@ import About from "@/sections/About";
 import Contact from "@/sections/Contact";
 import Projects from "@/sections/Projects";
 import Experience from "@/sections/Experience";
+import WorkExperience from "@/sections/WorkExperience";
+import HackathonExperience from "@/sections/HackathonExperience";
+import OpenSourceContributions from "@/sections/OpenSourceContributions";
+import Certifications from "@/sections/Certifications";
 
 function Index() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,7 +39,11 @@ function Index() {
             <Hero />
             <About />
             <Experience />
+            <WorkExperience />
+            <HackathonExperience />
+            <OpenSourceContributions />
             <Projects />
+            <Certifications />
             <Contact />
           </main>
           <Footer />
